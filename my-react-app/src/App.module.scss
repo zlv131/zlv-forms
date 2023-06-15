@@ -4,4 +4,17 @@
   height: 704px;
   background: rgba(255, 255, 255, 1);
   border-radius: 12px 12px 0px 0px;
+  
+  
+  @media (max-width: 900px) {
+    max-width: 600px;
+  }
+
+  @media (max-width: 620px) {
+    max-width: 350px;
+  }
+
+  @media (max-width: 320px) {
+    max-width: 270px;
+  }
 }

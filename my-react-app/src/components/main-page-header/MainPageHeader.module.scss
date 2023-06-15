@@ -7,4 +7,19 @@
     gap: 24px;
     padding: 0px 0px 10px 0px;
   }
+
+  .divider{
+
+    @media (max-width: 900px) {
+      max-width: 550px;
+    }
+
+    @media (max-width: 620px) {
+      max-width: 300px;
+    }
+
+    @media (max-width: 320px) {
+      max-width: 220px;
+    }
+  }
 }

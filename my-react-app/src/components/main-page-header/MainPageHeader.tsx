@@ -9,7 +9,7 @@ const MainPageHeader: React.FC = () => {
                 <Avatar/>
                 <Info/>
             </div>
-            <img src="./src/assets/Divider.svg" alt=""/>
+            <img className={styles.divider} src="./src/assets/Divider.svg" alt=""/>
         </div>
     );
 };
