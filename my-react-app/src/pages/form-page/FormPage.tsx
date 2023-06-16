@@ -29,11 +29,11 @@ const FormPage: React.FC = () => {
             <div className={styles.contentForm}>
                 <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
                     {currentStep === 1 && <FirstStep register={register} errors={errors}/>}
-                    {currentStep === 2 && <SecondStep/>}
+                    {currentStep === 2 && <SecondStep register={register} errors={errors}/>}
                     {currentStep === 3 && <ThirdStep/>}
 
-                    {/*<button id={'button-start'}*/}
-                    {/*        className={styles.button}> Начать </button>*/}
+                    <button id={'button-start'}
+                            className={styles.button}> Начать </button>
                 </form>
             </div>
         </div>
