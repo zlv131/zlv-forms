@@ -3,14 +3,14 @@ import {IStepsSlices} from "../../types/types.ts";
 
 const initialState: IStepsSlices = {
     steps: ["1", "2", "3"],
-    currentStep: "1",
+    currentStep: 1,
 };
 
 const stepsSlices = createSlice({
     name: 'stepsSlices',
     initialState,
     reducers: {
-        setCurrentStep (state, action: PayloadAction<string>) {
+        setCurrentStep (state, action: PayloadAction<number>) {
             state.currentStep = action.payload;
         },
     }

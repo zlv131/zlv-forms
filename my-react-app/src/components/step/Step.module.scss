@@ -1,0 +1,26 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+
+  img {
+    margin-top: 66px;
+  }
+
+  @media (max-width: 920px) {
+    img {
+      max-width: 450px;
+    }
+  }
+
+  @media (max-width: 620px) {
+    img {
+      max-width: 250px;
+    }
+  }
+
+  @media (max-width: 320px) {
+    img {
+      max-width: 200px;
+    }
+  }
+}

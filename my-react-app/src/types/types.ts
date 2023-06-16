@@ -11,7 +11,7 @@ interface IValueFormsSlices {
 
 interface IStepsSlices {
     steps: string[],
-    currentStep: string,
+    currentStep: number,
 }
 
 export type {

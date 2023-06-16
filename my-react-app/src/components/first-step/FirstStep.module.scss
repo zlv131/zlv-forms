@@ -1,0 +1,79 @@
+.wrapper {
+  margin-left: 112px;
+  margin-top: 110px;
+
+  input, select {
+    display: grid;
+    width: 300px;
+    height: 44px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.16);
+    border-radius: 4px;
+    margin: 0px;
+    padding-left: 10px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+
+
+    @media (max-width: 620px) {
+      max-width: 240px;
+    }
+
+    @media (max-width: 320px) {
+      max-width: 200px;
+    }
+  }
+
+  select {
+    width: 315px;
+    @media (max-width: 620px) {
+      max-width: 255px;
+    }
+
+    @media (max-width: 320px) {
+      max-width: 215px;
+    }
+  }
+
+  .error{
+    font-size: 12px;
+    padding: 0px 0px 66px 0px;
+    color: red;
+  }
+
+  label {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #333333;
+  }
+
+  .groupButton {
+    max-width: 680px;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 80px;
+
+
+    @media (max-width: 900px) {
+      max-width: 420px;
+    }
+
+    @media (max-width: 620px) {
+      max-width: 260px;
+    }
+
+    @media (max-width: 320px) {
+      max-width: 220px;
+    }
+  }
+
+  @media (max-width: 620px) {
+    margin-left: 50px;
+  }
+
+  @media (max-width: 320px) {
+    margin-left: 30px;
+  }
+}

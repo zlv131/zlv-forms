@@ -4,9 +4,10 @@ import {useForm} from "react-hook-form";
 import {PATTERN} from "../../const/const.ts";
 import {useAppDispatch} from "../../hooks/useAppDispatch.ts";
 import {setEmail, setPhoneNumber} from "../../store/slices/valueFormsSlices.ts";
-import {Link} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 const MainPageForm: React.FC = () => {
+    const navigate = useNavigate();
     const dispatch = useAppDispatch();
     const {
         register,
@@ -21,6 +22,7 @@ const MainPageForm: React.FC = () => {
     const onSubmit = (data) => {
         dispatch(setPhoneNumber(JSON.stringify(data.phoneNumber)));
         dispatch(setEmail(JSON.stringify(data.email)));
+        navigate('/step');
     }
 
     const getInputNumberValue = (value: string) => {
@@ -96,10 +98,14 @@ const MainPageForm: React.FC = () => {
                            maxLength={18}
                            className={styles.formInput}
                         {...register('phoneNumber', {
+                        required: {
+                            value: true,
+                            message: "Это поле обязательно",
+                        },
                         minLength: {
                             value: 18,
                             message: "Поле должно состоять из 11 цифр",
-                        }
+                        },
                     })}/>
                 </label>
                 <div className={styles.error}>
@@ -118,6 +124,10 @@ const MainPageForm: React.FC = () => {
                                    value: /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/,
                                    message: "Email введен некорректно"
                                },
+                               required: {
+                                   value: true,
+                                   message: "Это поле обязательно"
+                               }
                            })}/>
                 </label>
                 <div className={styles.error}>
@@ -125,7 +135,8 @@ const MainPageForm: React.FC = () => {
 					            <p> {errors?.email?.message} </p>
                     }
                 </div>
-                    <input id={'button-start'} className={styles.button} type="submit" value={"Начать"}/>
+                    <button id={'button-start'}
+                            className={styles.button}> Начать </button>
             </form>
         </div>
     );

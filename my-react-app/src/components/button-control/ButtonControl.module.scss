@@ -1,0 +1,53 @@
+.wrapper {
+
+
+  .buttonForward {
+    border-radius: 4px;
+    color: #5558FA;
+    width: 73px;
+    height: 44px;
+    background: #FFFFFF;
+    font-weight: 400;
+    font-size: 14px;
+    border: 2px #5558FA solid;
+
+    &:hover {
+      background: #5558FA;
+      color: #FFFFFF;
+    }
+
+    &:active {
+      background: #5558FA;
+      color: #FFFFFF;
+      padding: calc(.25em + 1px) .5em calc(.25em - 1px);
+      box-shadow: inset 0 -1px 1px rgba(85, 88, 250, .1), inset 0 1px 2px rgba(85, 88, 250, 0.3), inset 0 0 0 60px rgba(85, 88, 250, 0.45);
+    }
+  }
+
+  .buttonBack {
+    background: #5558FA;
+    border-radius: 4px;
+    width: 73px;
+    height: 44px;
+    color: #FFFFFF;
+    font-weight: 400;
+    font-size: 14px;
+    border: none;
+
+
+    &:hover {
+      color: #5558FA;
+      background: #FFFFFF;
+      border: 2px solid #5558FA;
+    }
+
+    &:active {
+      background: #FFFFFF;
+      color: #5558FA;
+      padding: calc(.25em + 1px) .5em calc(.25em - 1px);
+      box-shadow: inset 0 -1px 1px rgba(255, 255, 255, .1), inset 0 1px 2px rgba(255, 255, 255, 0.3), inset 0 0 0 60px rgba(255, 255, 255, 0.45);
+    }
+  }
+
+
+}
