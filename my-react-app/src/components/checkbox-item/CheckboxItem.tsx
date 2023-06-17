@@ -18,9 +18,6 @@ const CheckboxItem: React.FC<ICheckboxItemProps> = ({ id, checked, errors, regis
     };
 
 
-
-
-
     return (
         <div className={styles.wrapper}>
             <label>
@@ -30,8 +27,7 @@ const CheckboxItem: React.FC<ICheckboxItemProps> = ({ id, checked, errors, regis
                     onChange={(event) => handleInputClick(event, id)}
                     checked={checked}
                     placeholder="Placeholder"
-                    id={id.toString()}
-                    className="form__input form__input_step2"
+                    id={`field-checkbox-group-option${id}`}
                 />
                 {id}
             </label>

@@ -20,6 +20,14 @@ const listLinks: IListLinks[] = [
 
 const PATTERN = /\D/g;
 
+// const getDataFromLocalStorage = (key: string) => {
+//     if (localStorage.getItem(key) === null) {
+//         return "";
+//     } else {
+//         return localStorage.getItem(key).replace(/"/g, '');
+//     }
+// }
+
 export {
     listLinks,
     PATTERN,

@@ -23,7 +23,7 @@ const SecondStep: React.FC<ISecondStep> = ({ register, errors }) => {
         <div className={styles.wrapper}>
             <p className={styles.advantages}> Advantages </p>
             {listAdvantages.map((advantagesItem) => <div key={advantagesItem.id}> <AdvantagesItem id={advantagesItem.id} register={register} errors={errors} title={advantagesItem.title}/> </div>)}
-            <button className={styles.addItemButton} onClick={() => dispatch(addItemListAdvantages())}> + </button>
+            <button id={"button add"} className={styles.addItemButton} onClick={() => dispatch(addItemListAdvantages())}> + </button>
 
             <p className={styles.checkboxGroup}> Checkbox group </p>
             {listCheckBox.map((checkBoxItem) => <div key={checkBoxItem.id}> <CheckboxItem id={checkBoxItem.id} register={register} errors={errors} checked={checkBoxItem.checked}/> </div>)}

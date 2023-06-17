@@ -11,6 +11,10 @@ interface ICheckBox {
 interface IValueFormsSlices {
     phoneNumber: string;
     email: string;
+    nickname: string,
+    name: string,
+    surname: string,
+    sex: string,
     listAdvantages: IAdvantagesItem[];
     listCheckBox: ICheckBox[];
     selectedRadio: null | number;

@@ -9,6 +9,8 @@ import {useNavigate} from "react-router-dom";
 const MainPageForm: React.FC = () => {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
+
+
     const {
         register,
         formState: {
@@ -135,7 +137,7 @@ const MainPageForm: React.FC = () => {
 					            <p> {errors?.email?.message} </p>
                     }
                 </div>
-                    <button id={'button-start'}
+                    <button id={"button-start"}
                             className={styles.button}> Начать </button>
             </form>
         </div>

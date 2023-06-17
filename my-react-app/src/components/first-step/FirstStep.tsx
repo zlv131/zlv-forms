@@ -1,6 +1,9 @@
 import React from 'react';
 import styles from './FirstStep.module.scss';
 import ButtonControl from "../button-control/ButtonControl.tsx";
+import {useAppDispatch} from "../../hooks/useAppDispatch.ts";
+import {useAppSelector} from "../../hooks/useAppSelector.ts";
+import {setName, setNickname, setSex, setSurname} from "../../store/slices/valueFormsSlices.ts";
 
 
 //поправить пропс
@@ -10,6 +13,11 @@ interface IFirstStepProps {
 }
 
 const FirstStep: React.FC<IFirstStepProps> = ({ register, errors }) => {
+    const dispatch = useAppDispatch();
+    const nickname = useAppSelector(state => state.valueFormsSlices.nickname);
+    const name = useAppSelector(state => state.valueFormsSlices.name);
+    const surname = useAppSelector(state => state.valueFormsSlices.surname);
+    const sex = useAppSelector(state => state.valueFormsSlices.sex);
 
 
     return (
@@ -17,6 +25,9 @@ const FirstStep: React.FC<IFirstStepProps> = ({ register, errors }) => {
             <label>
                 Nickname
                 <input
+                    id={"field-nickname"}
+                    onInput={(event) => dispatch(setNickname(event.target.value))}
+                    value={nickname}
                     {...register("nickname", {
                         maxLength: {
                             value: 30,
@@ -42,6 +53,9 @@ const FirstStep: React.FC<IFirstStepProps> = ({ register, errors }) => {
             <label>
                 Name
                 <input
+                    id={"field-name"}
+                    onInput={(event) => dispatch(setName(event.target.value))}
+                    value={name}
                     {...register("name", {
                         maxLength: {
                             value: 50,
@@ -58,7 +72,6 @@ const FirstStep: React.FC<IFirstStepProps> = ({ register, errors }) => {
                     })}/>
             </label>
             <div className={styles.error}>
-                {console.log(errors?.nickname)}
                 {errors?.name &&
 					        <span> {errors?.name?.message} </span>
                 }
@@ -67,6 +80,9 @@ const FirstStep: React.FC<IFirstStepProps> = ({ register, errors }) => {
             <label>
                 Surname
                 <input
+                    id={"field-surname"}
+                    onInput={(event) => dispatch(setSurname(event.target.value))}
+                    value={surname}
                     {...register("surname", {
                         maxLength: {
                             value: 50,
@@ -90,18 +106,18 @@ const FirstStep: React.FC<IFirstStepProps> = ({ register, errors }) => {
 
             <label> Sex
                 <select name="sex"
+                        id={"field-sex"}
+                        onInput={(event) => dispatch(setSex(event.target.value))}
+                        value={sex}
                         {...register("sex", {
-                        maxLength: {
-                            value: 50,
-                            message: "Максимальное количество символов - 50",
-                        },
-                        pattern: {
-                            value: /^[a-zA-Zа-яА-Я]+$/,
-                        },
+                        required: {
+                            value: true,
+                            message: "Это поле обязательно",
+                        }
                         })}>
-                    <option value="Не выбрано"> Не выбрано </option>
-                    <option value="man"> man </option>
-                    <option value="woman"> woman </option>
+                    <option value=""> Не выбрано </option>
+                    <option id={"field-sex-option-man"} value="man"> man </option>
+                    <option id={"field-sex-option-woman"} value="woman"> woman </option>
                 </select>
             </label>
             <div className={styles.error}>

@@ -27,6 +27,7 @@ const ButtonControl: React.FC<IButtonControlProps> = ({ title }) => {
     return (
         <div className={styles.wrapper}>
             <button value={title}
+                    id={title === "Назад" ? "button-back" : "button-next"}
                     className={title === "Вперед" ? styles.buttonForward : styles.buttonBack}
                     onClick={handleOnClick}> {title} </button>
         </div>

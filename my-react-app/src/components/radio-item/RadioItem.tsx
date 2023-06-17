@@ -29,8 +29,7 @@ const RadioItem: React.FC<IRadioItemProps> = ({ register, errors, id }) => {
                     {...register(`radio${id}`)}
                     onChange={handleInputChange}
                     checked={selectedRadio === id}
-                    id={id.toString()}
-                    className="form__input form__input_step2"
+                    id={`field-radio-group-option${id}`}
                 />
                 {id}
             </label>

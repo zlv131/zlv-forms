@@ -22,19 +22,25 @@ const AdvantagesItem: React.FC<IAdvantagesItemProps> = ({ id, title, register, e
     return (
         <div className={styles.wrapper}>
             <input
-                {...register(`advantage${id}`)}
+                {...register(`advantage${id}`, {
+                    required: {
+                        value: true,
+                        message: "Это поле обязательно"
+                    }
+                })}
                 onChange={(event) => handleInputChange(event, id)}
                 value={title}
                 placeholder="Placeholder"
-                id={id.toString()}
+                id={`field-advantages-${id}`}
                 className="form__input form__input_step2"
             />
             <div className={styles.error}>
-                {errors?.advantages &&
-					        <span> {errors?.advantages?.message} </span>
+                {errors?.advantage &&
+					        <span> {errors?.advantage?.message} </span>
                 }
             </div>
             <img onClick={() => dispatch(removeItemListAdvantages({id}))}
+                 id={`button-remove-${id}`}
                  className={styles.deleteButton}
                  src="./src/assets/buttonDelete.svg" alt=""/>
         </div>
