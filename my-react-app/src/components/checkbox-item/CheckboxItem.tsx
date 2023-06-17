@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './CheckboxItem.module.scss';
-import {setAdvantageValueById, setChecked} from "../../store/slices/valueFormsSlices.ts";
+import {setChecked} from "../../store/slices/valueFormsSlices.ts";
 import {useAppDispatch} from "../../hooks/useAppDispatch.ts";
 
 interface ICheckboxItemProps {
@@ -13,9 +13,13 @@ interface ICheckboxItemProps {
 const CheckboxItem: React.FC<ICheckboxItemProps> = ({ id, checked, errors, register }) => {
     const dispatch = useAppDispatch();
     const handleInputClick = (event: React.MouseEvent<HTMLInputElement>, id: number) => {
-        const  checked  = event.target.value;
-        dispatch(setChecked({id, cheked}));
+        const  checked  = event.target.checked;
+        dispatch(setChecked({id, checked}));
     };
+
+
+
+
 
     return (
         <div className={styles.wrapper}>
@@ -23,8 +27,8 @@ const CheckboxItem: React.FC<ICheckboxItemProps> = ({ id, checked, errors, regis
                 <input
                     type={"checkbox"}
                     {...register(`checkbox${id}`)}
-                    onClick={(event) => handleInputClick(event, id)}
-                    value={checked}
+                    onChange={(event) => handleInputClick(event, id)}
+                    checked={checked}
                     placeholder="Placeholder"
                     id={id.toString()}
                     className="form__input form__input_step2"

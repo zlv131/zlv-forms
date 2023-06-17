@@ -13,6 +13,7 @@ interface IValueFormsSlices {
     email: string;
     listAdvantages: IAdvantagesItem[];
     listCheckBox: ICheckBox[];
+    selectedRadio: null | number;
 }
 
 interface IStepsSlices {

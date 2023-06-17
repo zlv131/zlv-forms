@@ -4,6 +4,9 @@ import ButtonControl from "../button-control/ButtonControl.tsx";
 const ThirdStep: React.FC = () => {
     return (
         <div className={styles.wrapper}>
+
+
+
             <ButtonControl title={"Назад"}/>
         </div>
     );

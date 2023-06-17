@@ -11,6 +11,14 @@
     font-weight: 400;
     font-size: 14px;
     padding-left: 10px;
+
+    @media (max-width: 620px) {
+      max-width: 200px;
+    }
+
+    @media (max-width: 320px) {
+      max-width: 160px;
+    }
   }
 
   .deleteButton{

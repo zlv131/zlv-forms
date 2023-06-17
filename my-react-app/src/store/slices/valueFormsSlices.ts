@@ -10,10 +10,11 @@ const initialState: IValueFormsSlices = {
         { id: 3, title: '' },
     ],
     listCheckBox: [
-        { id: 1, checked: false },
+        { id: 1, checked: true },
         { id: 2, checked: false },
         { id: 3, checked: false },
-    ]
+    ],
+    selectedRadio: null,
 };
 
 const valueFormsSlices = createSlice({
@@ -44,9 +45,14 @@ const valueFormsSlices = createSlice({
         setChecked (state, action: PayloadAction<{ id: number, checked: boolean}>) {
             const index = state.listCheckBox.findIndex(item => item.id === action.payload.id);
             state.listCheckBox[index].checked = action.payload.checked;
+        },
+
+        setSelectedRadio (state, action: PayloadAction<number>) {
+            state.selectedRadio = action.payload;
         }
+
     }
 })
 
-export const { setPhoneNumber, setEmail, addItemListAdvantages, removeItemListAdvantages, setAdvantageValueById, setChecked } = valueFormsSlices.actions;
+export const { setPhoneNumber, setEmail, addItemListAdvantages, removeItemListAdvantages, setAdvantageValueById, setChecked, setSelectedRadio } = valueFormsSlices.actions;
 export default valueFormsSlices.reducer
