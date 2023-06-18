@@ -39,12 +39,14 @@ const ThirdStep: React.FC<IThirdStepProps> = ({ register, errors }) => {
                     })}/>
             </label>
             <div className={styles.info}>
-                <p className={styles.count}> {valueAbout.length} из 200 </p>
                 <div className={styles.error}>
+
                     {errors?.about &&
 					            <span> {errors?.about?.message} </span>
                     }
                 </div>
+                <p className={styles.count}> {valueAbout.trim().length} из 200 </p>
+
             </div>
         </div>
     );

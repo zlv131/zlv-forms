@@ -55,7 +55,9 @@
     justify-content: space-between;
 
 
-    .count{
+    .error{
+      color: red;
+
       margin: 0px 0px 0px 110px;
 
       @media (max-width: 920px) {
@@ -71,8 +73,7 @@
       }
     }
 
-    .error{
-      color: red;
+    .count{
       margin: 0px 110px 0px 0px;
 
       @media (max-width: 920px) {
