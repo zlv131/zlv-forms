@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from './FirstStep.module.scss';
 import ButtonControl from "../button-control/ButtonControl.tsx";
 import {useAppDispatch} from "../../hooks/useAppDispatch.ts";
@@ -19,6 +19,16 @@ const FirstStep: React.FC<IFirstStepProps> = ({ register, errors }) => {
     const surname = useAppSelector(state => state.valueFormsSlices.surname);
     const sex = useAppSelector(state => state.valueFormsSlices.sex);
 
+    // const isErrorNickname = !!errors.nickname;
+    // const isErrorName = !!errors.name;
+    // const isErrorSurname = !!errors.surname;
+
+    // const [isErrorNickname, setIsErrorNickname] = useState(true);
+    // const [isErrorName, setIsErrorName] = useState(true);
+    // const [isErrorSurname, setIsSurname] = useState(true);
+    // const [isErrorSex, setIsErrorSex] = useState(true);
+    // console.log(nickname === '' ? true : !!errors.nickname);
+    // console.log(name === '' ? true : !!errors.name);
 
     return (
         <div className={styles.wrapper}>
@@ -26,9 +36,15 @@ const FirstStep: React.FC<IFirstStepProps> = ({ register, errors }) => {
                 Nickname
                 <input
                     id={"field-nickname"}
-                    onInput={(event) => dispatch(setNickname(event.target.value))}
+                    onInput={(event) => {
+                        dispatch(setNickname(event.target.value));
+                    }}
                     value={nickname}
                     {...register("nickname", {
+                        required: {
+                            value: true,
+                            message: "Это поле обязательно",
+                        },
                         maxLength: {
                             value: 30,
                             message: "Максимальное количество символов - 30",
@@ -37,11 +53,8 @@ const FirstStep: React.FC<IFirstStepProps> = ({ register, errors }) => {
                             value: /^[a-zA-Z0-9а-яА-Я]+$/,
                             message: "Поле может содержать только цифры и буквы",
                         },
-                        required: {
-                            value: true,
-                            message: "Это поле обязательно",
-                        },
-                    })}/>
+                    })}
+                />
             </label>
             <div className={styles.error}>
                 {errors?.nickname &&
@@ -54,7 +67,9 @@ const FirstStep: React.FC<IFirstStepProps> = ({ register, errors }) => {
                 Name
                 <input
                     id={"field-name"}
-                    onInput={(event) => dispatch(setName(event.target.value))}
+                    onInput={(event) => {
+                        dispatch(setName(event.target.value));
+                    }}
                     value={name}
                     {...register("name", {
                         maxLength: {
@@ -81,7 +96,9 @@ const FirstStep: React.FC<IFirstStepProps> = ({ register, errors }) => {
                 Surname
                 <input
                     id={"field-surname"}
-                    onInput={(event) => dispatch(setSurname(event.target.value))}
+                    onInput={(event) => {
+                        dispatch(setSurname(event.target.value));
+                    }}
                     value={surname}
                     {...register("surname", {
                         maxLength: {
@@ -95,7 +112,7 @@ const FirstStep: React.FC<IFirstStepProps> = ({ register, errors }) => {
                         required: {
                             value: true,
                             message: "Это поле обязательно",
-                        }
+                        },
                     })}/>
             </label>
             <div className={styles.error}>
@@ -107,7 +124,9 @@ const FirstStep: React.FC<IFirstStepProps> = ({ register, errors }) => {
             <label> Sex
                 <select name="sex"
                         id={"field-sex"}
-                        onInput={(event) => dispatch(setSex(event.target.value))}
+                        onInput={(event) => {
+                            dispatch(setSex(event.target.value))
+                        }}
                         value={sex}
                         {...register("sex", {
                         required: {
@@ -125,7 +144,6 @@ const FirstStep: React.FC<IFirstStepProps> = ({ register, errors }) => {
 					        <span> {errors?.sex?.message} </span>
                 }
             </div>
-
 
             <div className={styles.groupButton}>
                 <ButtonControl title={"Назад"}/>

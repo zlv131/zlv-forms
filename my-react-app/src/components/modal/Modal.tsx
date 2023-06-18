@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from './Modal.module.scss';
 import {useNavigate} from "react-router-dom";
+import {useAppDispatch} from "../../hooks/useAppDispatch.ts";
+import {setCurrentStep} from "../../store/slices/stepsSlices.ts";
 
 interface IModalProps {
     active: boolean,
@@ -8,9 +10,11 @@ interface IModalProps {
     status: boolean,
 }
 const Modal: React.FC<IModalProps> = ({ active, setActive, status }) => {
+    const dispatch = useAppDispatch();
     const navigate = useNavigate();
     const handleOnClick = () => {
         if (status) {
+            dispatch(setCurrentStep(1));
             navigate("/");
         } else {
             setActive(false);
