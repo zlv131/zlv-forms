@@ -5,6 +5,7 @@ import {PATTERN} from "../../const/const.ts";
 import {useAppDispatch} from "../../hooks/useAppDispatch.ts";
 import {setEmail, setPhoneNumber} from "../../store/slices/valueFormsSlices.ts";
 import {useNavigate} from "react-router-dom";
+import {IValueForms} from "../../types/types.ts";
 
 const MainPageForm: React.FC = () => {
     const navigate = useNavigate();
@@ -17,11 +18,11 @@ const MainPageForm: React.FC = () => {
             errors,
         },
         handleSubmit,
-    } = useForm({
+    } = useForm<IValueForms>({
         mode: "onBlur",
     });
 
-    const onSubmit = (data) => {
+    const onSubmit = (data: any) => {
         dispatch(setPhoneNumber(JSON.stringify(data.phoneNumber)));
         dispatch(setEmail(JSON.stringify(data.email)));
         navigate('/step');
@@ -77,7 +78,7 @@ const MainPageForm: React.FC = () => {
     };
 
     const handlePhonePaste = (event: React.ClipboardEvent<HTMLInputElement>) => {
-        const pasted = event.clipboardData ?? window["clipboardData"];
+        const pasted = event.clipboardData;
         const input: HTMLInputElement = event.target as HTMLInputElement;
         const inputNumberValue: string = getInputNumberValue(input.value);
 
@@ -94,7 +95,7 @@ const MainPageForm: React.FC = () => {
             <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
                 <label>
                     Номер телефона
-                    <input placeholder={'+7 (___) ___-__-__'}
+                    <input placeholder={'+7 (993) 926-20-83'}
                            onPaste={handlePhonePaste}
                            onInput={handlePhoneInput}
                            maxLength={18}

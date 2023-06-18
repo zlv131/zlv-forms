@@ -3,6 +3,7 @@ import styles from './CheckboxItem.module.scss';
 import {setChecked} from "../../store/slices/valueFormsSlices.ts";
 import {useAppDispatch} from "../../hooks/useAppDispatch.ts";
 
+
 interface ICheckboxItemProps {
     id: number,
     checked: boolean;

@@ -72,8 +72,23 @@ const valueFormsSlices = createSlice({
             state.sex = action.payload;
         },
 
+        setAbout (state,  action: PayloadAction<string>) {
+            state.about = action.payload;
+        }
+
     }
 })
 
-export const { setPhoneNumber, setEmail, addItemListAdvantages, removeItemListAdvantages, setAdvantageValueById, setChecked, setSelectedRadio, setNickname, setName, setSex, setSurname } = valueFormsSlices.actions;
+export const {  setPhoneNumber,
+                setEmail,
+                addItemListAdvantages,
+                removeItemListAdvantages,
+                setAdvantageValueById,
+                setChecked,
+                setSelectedRadio,
+                setNickname,
+                setName,
+                setSex,
+                setAbout,
+                setSurname } = valueFormsSlices.actions;
 export default valueFormsSlices.reducer

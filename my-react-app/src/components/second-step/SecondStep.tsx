@@ -7,15 +7,14 @@ import {useAppDispatch} from "../../hooks/useAppDispatch.ts";
 import {addItemListAdvantages} from "../../store/slices/valueFormsSlices.ts";
 import CheckboxItem from "../checkbox-item/CheckboxItem.tsx";
 import RadioItem from "../radio-item/RadioItem.tsx";
-import {DeepRequired, FieldErrorsImpl, UseFormRegister} from "react-hook-form";
+import {UseFormRegister} from "react-hook-form";
 import {IValueForms} from "../../types/types.ts";
 
 
 interface ISecondStep {
     register: UseFormRegister<IValueForms>;
-    errors: Partial<FieldErrorsImpl<DeepRequired<IValueForms>>>;
 }
-const SecondStep: React.FC<ISecondStep> = ({ register, errors }) => {
+const SecondStep: React.FC<ISecondStep> = ({ register }) => {
     const dispatch = useAppDispatch();
     const listAdvantages  = useAppSelector((state) => state.valueFormsSlices.listAdvantages);
     const listCheckBox = useAppSelector((state) => state.valueFormsSlices.listCheckBox);
@@ -24,7 +23,7 @@ const SecondStep: React.FC<ISecondStep> = ({ register, errors }) => {
     return (
         <div className={styles.wrapper}>
             <p className={styles.advantages}> Advantages </p>
-            {listAdvantages.map((advantagesItem) => <div key={advantagesItem.id}> <AdvantagesItem id={advantagesItem.id} register={register} errors={errors} title={advantagesItem.title}/> </div>)}
+            {listAdvantages.map((advantagesItem) => <div key={advantagesItem.id}> <AdvantagesItem id={advantagesItem.id} register={register} title={advantagesItem.title}/> </div>)}
             <button id={"button add"} className={styles.addItemButton} onClick={() => dispatch(addItemListAdvantages())}> + </button>
 
             <p className={styles.checkboxGroup}> Checkbox group </p>

@@ -14,7 +14,7 @@ const listLinks: IListLinks[] = [
     {
         id: 3,
         name: "Resume",
-        link: "https://t.me/zlv_tg"
+        link: "https://drive.google.com/file/d/1K6FrqRhG014nNpXQic7sFE2P68Gre5vJ/view?usp=sharing"
     },
 ];
 

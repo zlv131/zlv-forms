@@ -1,17 +1,21 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styles from './ThirdStep.module.scss';
 import {DeepRequired, FieldErrorsImpl, UseFormRegister} from "react-hook-form";
 import {IValueForms} from "../../types/types.ts";
+import {useAppSelector} from "../../hooks/useAppSelector.ts";
+import {useAppDispatch} from "../../hooks/useAppDispatch.ts";
+import {setAbout} from "../../store/slices/valueFormsSlices.ts";
 
 interface IThirdStepProps {
     register: UseFormRegister<IValueForms>;
     errors: Partial<FieldErrorsImpl<DeepRequired<IValueForms>>>;
 }
 const ThirdStep: React.FC<IThirdStepProps> = ({ register, errors }) => {
-    const [countSymbols, setCountSymbols] = useState<number>(0);
+    const dispatch = useAppDispatch();
+    const valueAbout = useAppSelector(state => state.valueFormsSlices.about);
 
     const getCountSymbols = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-        setCountSymbols((event.target.value).length)
+        dispatch(setAbout(event.target.value));
     }
 
 
@@ -21,6 +25,7 @@ const ThirdStep: React.FC<IThirdStepProps> = ({ register, errors }) => {
             <label>
                 <textarea
                     id={"field-about"}
+                    value={valueAbout}
                     onInput={getCountSymbols}
                     {...register("about", {
                         maxLength: {
@@ -34,7 +39,7 @@ const ThirdStep: React.FC<IThirdStepProps> = ({ register, errors }) => {
                     })}/>
             </label>
             <div className={styles.info}>
-                <p className={styles.count}> {countSymbols} из 200 </p>
+                <p className={styles.count}> {valueAbout.length} из 200 </p>
                 <div className={styles.error}>
                     {errors?.about &&
 					            <span> {errors?.about?.message} </span>

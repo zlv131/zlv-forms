@@ -8,6 +8,7 @@ interface ICheckBox {
     id: number,
     checked: boolean,
 }
+
 interface IValueForms {
     phoneNumber: string;
     email: string;
