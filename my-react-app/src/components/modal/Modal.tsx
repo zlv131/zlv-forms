@@ -25,7 +25,7 @@ const Modal: React.FC<IModalProps> = ({ active, setActive, status }) => {
         <div className={active ? styles.wrapperActive : styles.wrapper}>
                 <div className={styles.content}>
                     <div className={styles.titleModal}>
-                        {status ? "Форма успешно отправлена" : "Ошибка"}
+                        {status ? "Форма успешно отправлена" : "Ошибка: нужно заполнить все поля корректно"}
                     </div>
                     <img className={styles.imgModal} src={status ? "./src/assets/success.svg" : "./src/assets/unlucky.svg"} alt=""/>
                     <button onClick={handleOnClick}

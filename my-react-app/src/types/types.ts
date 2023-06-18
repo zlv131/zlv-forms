@@ -8,7 +8,7 @@ interface ICheckBox {
     id: number,
     checked: boolean,
 }
-interface IValueFormsSlices {
+interface IValueForms {
     phoneNumber: string;
     email: string;
     nickname: string,
@@ -18,6 +18,7 @@ interface IValueFormsSlices {
     listAdvantages: IAdvantagesItem[];
     listCheckBox: ICheckBox[];
     selectedRadio: null | number;
+    about: string;
 }
 
 interface IStepsSlices {
@@ -34,7 +35,7 @@ interface IAdvantagesItem {
 
 export type {
     IListLinks,
-    IValueFormsSlices,
+    IValueForms,
     IStepsSlices,
     IAdvantagesItem,
 

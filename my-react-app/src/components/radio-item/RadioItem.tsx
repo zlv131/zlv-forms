@@ -6,11 +6,9 @@ import {setSelectedRadio} from "../../store/slices/valueFormsSlices.ts";
 
 interface IRadioItemProps {
     id: number,
-    checked: boolean;
     register: any;
-    errors: any
 }
-const RadioItem: React.FC<IRadioItemProps> = ({ register, errors, id }) => {
+const RadioItem: React.FC<IRadioItemProps> = ({ register, id }) => {
     const dispatch = useAppDispatch();
     const selectedRadio = useAppSelector(state => state.valueFormsSlices.selectedRadio);
 
@@ -20,8 +18,6 @@ const RadioItem: React.FC<IRadioItemProps> = ({ register, errors, id }) => {
 
     return (
         <div className={styles.wrapper}>
-
-
             <label>
                 <input
                     type={"radio"}
@@ -33,13 +29,6 @@ const RadioItem: React.FC<IRadioItemProps> = ({ register, errors, id }) => {
                 />
                 {id}
             </label>
-            <div className={styles.error}>
-                {errors?.radio &&
-					        <span> {errors?.radio?.message} </span>
-                }
-            </div>
-
-
         </div>
     );
 };

@@ -7,16 +7,14 @@ interface ICheckboxItemProps {
     id: number,
     checked: boolean;
     register: any;
-    errors: any
 }
 
-const CheckboxItem: React.FC<ICheckboxItemProps> = ({ id, checked, errors, register }) => {
+const CheckboxItem: React.FC<ICheckboxItemProps> = ({ id, checked, register }) => {
     const dispatch = useAppDispatch();
-    const handleInputClick = (event: React.MouseEvent<HTMLInputElement>, id: number) => {
+    const handleInputClick = (event: React.ChangeEvent<HTMLInputElement>, id: number) => {
         const  checked  = event.target.checked;
         dispatch(setChecked({id, checked}));
     };
-
 
     return (
         <div className={styles.wrapper}>
@@ -31,11 +29,6 @@ const CheckboxItem: React.FC<ICheckboxItemProps> = ({ id, checked, errors, regis
                 />
                 {id}
             </label>
-            <div className={styles.error}>
-                {errors?.advantages &&
-					        <span> {errors?.advantages?.message} </span>
-                }
-            </div>
         </div>
     );
 };

@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
 import styles from './ThirdStep.module.scss';
+import {DeepRequired, FieldErrorsImpl, UseFormRegister} from "react-hook-form";
+import {IValueForms} from "../../types/types.ts";
 
 interface IThirdStepProps {
-    register: any;
-    errors: any
+    register: UseFormRegister<IValueForms>;
+    errors: Partial<FieldErrorsImpl<DeepRequired<IValueForms>>>;
 }
 const ThirdStep: React.FC<IThirdStepProps> = ({ register, errors }) => {
     const [countSymbols, setCountSymbols] = useState<number>(0);

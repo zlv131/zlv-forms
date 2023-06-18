@@ -8,6 +8,8 @@ import ThirdStep from "../../components/third_step/ThirdStep.tsx";
 import {useForm} from "react-hook-form";
 import ButtonControl from "../../components/button-control/ButtonControl.tsx";
 import Modal from "../../components/modal/Modal.tsx";
+import {URL} from "../../const/const.ts";
+import {IValueForms} from "../../types/types.ts";
 
 const FormPage: React.FC = () => {
     const [active, setActive] = useState<boolean>(false);
@@ -21,11 +23,22 @@ const FormPage: React.FC = () => {
             errors,
         },
         handleSubmit,
-    } = useForm({
+    } = useForm<IValueForms> ({
         mode: "onBlur",
     });
 
-    const onSubmit = (data) => {
+    const postData = async (url: string, data: {}) => {
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+        return response.json();
+    }
+
+    const onSubmit = (data: any) => {
         for (const dataKey in data) {
             if (data[dataKey] === "") {
                 setStatus(false);
@@ -40,7 +53,7 @@ const FormPage: React.FC = () => {
                 setStatus(true);
             }
         }
-        console.log(JSON.stringify(data));
+        postData(URL, JSON.stringify(data))
     }
 
     return (

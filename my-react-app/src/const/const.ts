@@ -20,15 +20,10 @@ const listLinks: IListLinks[] = [
 
 const PATTERN = /\D/g;
 
-// const getDataFromLocalStorage = (key: string) => {
-//     if (localStorage.getItem(key) === null) {
-//         return "";
-//     } else {
-//         return localStorage.getItem(key).replace(/"/g, '');
-//     }
-// }
+const URL: string = 'https://api.sbercloud.ru/content/v1/bootcamp/frontend';
 
 export {
+    URL,
     listLinks,
     PATTERN,
 }

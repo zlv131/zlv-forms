@@ -1,15 +1,16 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styles from './FirstStep.module.scss';
 import ButtonControl from "../button-control/ButtonControl.tsx";
 import {useAppDispatch} from "../../hooks/useAppDispatch.ts";
 import {useAppSelector} from "../../hooks/useAppSelector.ts";
 import {setName, setNickname, setSex, setSurname} from "../../store/slices/valueFormsSlices.ts";
+import {DeepRequired, FieldErrorsImpl, UseFormRegister} from "react-hook-form";
+import {IValueForms} from "../../types/types.ts";
 
 
-//поправить пропс
 interface IFirstStepProps {
-    register: any;
-    errors: any
+    register: UseFormRegister<IValueForms>;
+    errors: Partial<FieldErrorsImpl<DeepRequired<IValueForms>>>;
 }
 
 const FirstStep: React.FC<IFirstStepProps> = ({ register, errors }) => {
@@ -19,16 +20,6 @@ const FirstStep: React.FC<IFirstStepProps> = ({ register, errors }) => {
     const surname = useAppSelector(state => state.valueFormsSlices.surname);
     const sex = useAppSelector(state => state.valueFormsSlices.sex);
 
-    // const isErrorNickname = !!errors.nickname;
-    // const isErrorName = !!errors.name;
-    // const isErrorSurname = !!errors.surname;
-
-    // const [isErrorNickname, setIsErrorNickname] = useState(true);
-    // const [isErrorName, setIsErrorName] = useState(true);
-    // const [isErrorSurname, setIsSurname] = useState(true);
-    // const [isErrorSex, setIsErrorSex] = useState(true);
-    // console.log(nickname === '' ? true : !!errors.nickname);
-    // console.log(name === '' ? true : !!errors.name);
 
     return (
         <div className={styles.wrapper}>
@@ -36,7 +27,7 @@ const FirstStep: React.FC<IFirstStepProps> = ({ register, errors }) => {
                 Nickname
                 <input
                     id={"field-nickname"}
-                    onInput={(event) => {
+                    onInput={(event: React.ChangeEvent<HTMLInputElement>) => {
                         dispatch(setNickname(event.target.value));
                     }}
                     value={nickname}
@@ -62,12 +53,11 @@ const FirstStep: React.FC<IFirstStepProps> = ({ register, errors }) => {
                 }
             </div>
 
-
             <label>
                 Name
                 <input
                     id={"field-name"}
-                    onInput={(event) => {
+                    onInput={(event: React.ChangeEvent<HTMLInputElement>) => {
                         dispatch(setName(event.target.value));
                     }}
                     value={name}
@@ -96,7 +86,7 @@ const FirstStep: React.FC<IFirstStepProps> = ({ register, errors }) => {
                 Surname
                 <input
                     id={"field-surname"}
-                    onInput={(event) => {
+                    onInput={(event: React.ChangeEvent<HTMLInputElement>) => {
                         dispatch(setSurname(event.target.value));
                     }}
                     value={surname}
@@ -122,9 +112,9 @@ const FirstStep: React.FC<IFirstStepProps> = ({ register, errors }) => {
             </div>
 
             <label> Sex
-                <select name="sex"
+                <select
                         id={"field-sex"}
-                        onInput={(event) => {
+                        onInput={(event: React.ChangeEvent<HTMLSelectElement>) => {
                             dispatch(setSex(event.target.value))
                         }}
                         value={sex}

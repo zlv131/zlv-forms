@@ -1,7 +1,7 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {IValueFormsSlices} from "../../types/types.ts";
+import {IValueForms} from "../../types/types.ts";
 
-const initialState: IValueFormsSlices = {
+const initialState: IValueForms = {
     phoneNumber: '',
     email: '',
     nickname: '',
@@ -19,6 +19,7 @@ const initialState: IValueFormsSlices = {
         { id: 3, checked: false },
     ],
     selectedRadio: null,
+    about: "",
 };
 
 const valueFormsSlices = createSlice({
