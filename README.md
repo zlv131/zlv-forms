@@ -1,4 +1,4 @@
-# FrontCloudCamp-forms
+# Forms
 SPA-приложение: форма для отправки данных.
 
 ### Главная страница
@@ -23,4 +23,4 @@ SPA-приложение: форма для отправки данных.
 Открыть http://localhost:5173/, чтобы просмотреть в вашем браузере.
 
 ## Ссылка на проект
-[FrontCloudCamp-forms](https://frontcloudcamp-zlvform.netlify.app/)✨
+[Forms](https://frontcloudcamp-zlvform.netlify.app/)✨
