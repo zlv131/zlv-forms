@@ -21,7 +21,8 @@ https://zlv-forms.netlify.app/
 
 [![Skills](https://skillicons.dev/icons?i=ts,react,redux,vite,scss)](https://skillicons.dev)
 
-### Инструкция по запуску приложения
+
+## Инструкция по запуску приложения
 В директории прооекта вы можете запустить:
 
 ``` npm install ```
