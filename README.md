@@ -3,7 +3,7 @@ SPA-приложение: форма для отправки данных.
 
 ## Preview
 
-<img src='./src/assets/forms.gif' width='350'>
+<img src='./my-react-app/src/assets/forms.gif' width='350'>
 
 ### Главная страница
 - Информация о пользователе: ссылки для связи
