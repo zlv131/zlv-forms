@@ -1,9 +1,5 @@
 # Forms
-SPA-приложение: форма для отправки данных.
-
-## Preview
-
-<img src='./my-react-app/src/assets/forms.gif' width='650'>
+SPA-приложение: многостраничная форма с разными полями данных с проработанной валидацией каждого поля. 
 
 ### Главная страница
 - Информация о пользователе: ссылки для связи
@@ -13,6 +9,14 @@ SPA-приложение: форма для отправки данных.
 - Первый шаг: поля nickname, name, surname, sex
 - Второй шаг: поля advantages, checkbox-group, radio-group
 - Третий шаг: поле about и возможность отправить форму, если все заполнено корректно
+
+## Preview
+
+<img src='./my-react-app/src/assets/forms.gif' width='450'>
+
+Технологии, используемые на проекте: <br>
+
+[![Skills](https://skillicons.dev/icons?i=ts,react,redux,vite,scss)](https://skillicons.dev)
 
 ### Инструкция по запуску приложения
 В директории прооекта вы можете запустить:
