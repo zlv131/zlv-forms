@@ -17,7 +17,7 @@ https://zlv-forms.netlify.app/
 
 <img src='./my-react-app/src/assets/forms.gif' width='450'>
 
-## Технологии, используемые на проекте: <br>
+## Технологии, используемые на проекте: 
 
 [![Skills](https://skillicons.dev/icons?i=ts,react,redux,vite,scss)](https://skillicons.dev)
 
