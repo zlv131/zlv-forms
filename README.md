@@ -3,7 +3,7 @@ SPA-приложение: форма для отправки данных.
 
 ## Preview
 
-<img src='./my-react-app/src/assets/forms.gif' width='350'>
+<img src='./my-react-app/src/assets/forms.gif' width='650'>
 
 ### Главная страница
 - Информация о пользователе: ссылки для связи
@@ -26,5 +26,5 @@ SPA-приложение: форма для отправки данных.
 Запускает приложение в режиме разработки.
 Открыть http://localhost:5173/, чтобы просмотреть в вашем браузере.
 
-## Ссылка на проект
-[Forms](https://zlv-forms.netlify.app/)✨
+## Ссылка на прототип:
+https://zlv-forms.netlify.app/)
